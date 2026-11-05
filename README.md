@@ -1,88 +1,76 @@
-# Rock Eww
+# Eww Clock Widget
 
-A minimal, aesthetic desktop clock widget built with [Eww](https://github.com/elkowar/eww) for Wayland-based Linux desktops.
+A clean, typography-focused desktop clock widget built with [Eww](https://github.com/elkowar/eww) for Linux desktops running Wayland.
 
-Rock Eww brings a clean and elegant touch to your desktop with a stylish date and time display, designed to complement minimal desktop setups.
+It displays the current day, date, and time in a minimal layout, using Anurati and Chilanka fonts.
 
 ## Preview
 
-<!-- Add your desktop screenshot here -->
- ![Rock Eww Preview](preview.png) 
+<!-- Add a screenshot of the widget as preview.png in the repository root. -->
+![Eww Clock Widget preview](preview.png)
 
 ## Features
 
-- **Minimal Design** – Clean typography with a distraction-free layout.
-- **Live Clock** – Displays the current time with automatic updates every second.
-- **Date Display** – Shows the current date and day of the week.
-- **Custom Typography** – Uses Anurati and Chilanka fonts for a distinctive look.
-- **Wayland Friendly** – Built using Eww for Wayland desktop environments.
-- **Lightweight** – Simple configuration with minimal dependencies.
+- Live clock that refreshes every second
+- Day and date display that refresh every minute
+- Minimal, centered layout with white typography
+- Custom styling with Anurati and Chilanka fonts
+- Lightweight configuration using Eww, Yuck, and SCSS
 
-## Built With
+## Requirements
 
-- [Eww](https://github.com/elkowar/eww) – Widget framework
-- Yuck – Widget configuration
-- SCSS – Styling
+- Linux with a Wayland desktop
+- [Eww](https://github.com/elkowar/eww)
+- Anurati font
+- Chilanka font
 
 ## Installation
 
 ### 1. Install Eww
 
-For Arch Linux and Arch-based distributions:
+On Arch Linux or an Arch-based distribution:
 
 ```bash
 yay -S eww
 ```
 
-### 2. Install Required Fonts
+For other distributions, follow the [official Eww installation guide](https://elkowar.github.io/eww/).
 
-Make sure you have these fonts installed:
+### 2. Install the fonts
 
-- Anurati
-- Chilanka
+Install **Anurati** and **Chilanka** on your system.
 
-### 3. Clone the Repository
+### 3. Clone the repository
 
 ```bash
-git clone https://github.com/Samiullah-Mughal/rock-eww.git
+git clone https://github.com/Samiullah-Mughal/eww-clock-widget.git
+cd eww-clock-widget
 ```
 
-### 4. Copy Configuration Files
-
-Create the Eww configuration directory if it doesn't exist:
+### 4. Install the configuration
 
 ```bash
 mkdir -p ~/.config/eww
+cp eww.yuck eww.scss ~/.config/eww/
 ```
 
-Copy the configuration files:
-
-```bash
-cp rock-eww/eww.yuck ~/.config/eww/
-cp rock-eww/eww.scss ~/.config/eww/
-```
-
-### 5. Launch the Widget
+### 5. Start the widget
 
 ```bash
 eww daemon
 eww open clock
 ```
 
-That's it! Your desktop clock should now be running.
-
 ## Customization
 
-Want to make it your own?
+Edit the following files inside `~/.config/eww/`:
 
-You can customize the widget by editing:
-
-| File | Purpose |
+| File | What it controls |
 |---|---|
-| `eww.yuck` | Widget structure, data and window configuration |
-| `eww.scss` | Colors, fonts, sizes and styling |
+| `eww.yuck` | Clock data, layout, position, and window behavior |
+| `eww.scss` | Fonts, colors, spacing, and text sizes |
 
-After making changes, reload Eww:
+After making changes:
 
 ```bash
 eww reload
@@ -91,7 +79,7 @@ eww reload
 ## Project Structure
 
 ```text
-rock-eww/
+eww-clock-widget/
 ├── eww.yuck
 ├── eww.scss
 └── README.md
@@ -99,19 +87,16 @@ rock-eww/
 
 ## Compatibility
 
-Designed for Linux desktops running Wayland with Eww installed.
+Designed for Wayland-based Linux desktops. The window is configured for monitor 0 with a width of 1600px and a top offset of 60px. Adjust the geometry settings in `eww.yuck` to suit your display.
 
 ## Contributing
 
-Suggestions, improvements, and contributions are always welcome!
-
-Feel free to fork the repository and submit a pull request.
+Ideas, bug reports, and improvements are welcome. Feel free to open an issue or submit a pull request.
 
 ## License
 
-See the repository for licensing information.
+No license information is currently specified. Add a license file if you want others to know how they may use, modify, and distribute this project.
 
 ---
 
-**Made with ❤️ by [Samiullah Mughal](https://github.com/Samiullah-Mughal)**
-
+Made by [Samiullah Mughal](https://github.com/Samiullah-Mughal).
